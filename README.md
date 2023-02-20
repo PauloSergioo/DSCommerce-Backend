@@ -44,7 +44,7 @@ pode acessar os cadastros de usuários, produtos e categorias.
 
 
 # Tecnologias utilizadas
-## Back end
+
 - Java
 - Spring Boot
 - JPA / Hibernate
