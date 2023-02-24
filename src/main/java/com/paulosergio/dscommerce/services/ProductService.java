@@ -32,19 +32,16 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(Pageable pageable) {
-        Page<Product> result = repository.findAll(pageable);
-        result.stream().map(x -> new ProductDTO(x)).toList();
+    public Page<ProductDTO> findAll(String name, Pageable pageable) {
+        Page<Product> result = repository.searchByName(name, pageable);
         return result.map(x -> new ProductDTO(x));
     }
 
     @Transactional
     public ProductDTO insert(ProductDTO dto) {
-
         Product entity = new Product();
         copyDtoToEntity(dto, entity);
         entity = repository.save(entity);
-
         return new ProductDTO(entity);
     }
 
@@ -54,7 +51,6 @@ public class ProductService {
             Product entity = repository.getReferenceById(id);
             copyDtoToEntity(dto, entity);
             entity = repository.save(entity);
-
             return new ProductDTO(entity);
         }
         catch (EntityNotFoundException e) {
