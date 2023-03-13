@@ -26,10 +26,8 @@ public class User implements UserDetails {
 
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "tb_user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new  HashSet<>();
+    @JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
 
     public User() {
@@ -84,6 +82,15 @@ public class User implements UserDetails {
         this.birthDate = birthDate;
     }
 
+    public boolean hasRole(String roleName) {
+        for (Role role : roles) {
+            if (role.getAuthority().equals(roleName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -121,6 +128,7 @@ public class User implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public List<Order> getOrders() {
         return orders;
     }
