@@ -5,8 +5,6 @@ import com.paulosergio.dscommerce.services.exceptions.ForbiddenException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.awt.*;
-
 @Service
 public class AuthService {
 

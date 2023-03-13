@@ -3,7 +3,6 @@ package com.paulosergio.dscommerce.services;
 
 import com.paulosergio.dscommerce.dto.OrderDTO;
 import com.paulosergio.dscommerce.dto.OrderItemDTO;
-import com.paulosergio.dscommerce.dto.ProductDTO;
 import com.paulosergio.dscommerce.entities.*;
 import com.paulosergio.dscommerce.repositories.OrderItemRepository;
 import com.paulosergio.dscommerce.repositories.OrderRepository;

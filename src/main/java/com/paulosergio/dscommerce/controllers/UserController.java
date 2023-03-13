@@ -1,19 +1,11 @@
 package com.paulosergio.dscommerce.controllers;
 
-import com.paulosergio.dscommerce.dto.ProductDTO;
 import com.paulosergio.dscommerce.dto.UserDTO;
-import com.paulosergio.dscommerce.services.ProductService;
 import com.paulosergio.dscommerce.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.validation.Valid;
-import java.net.URI;
 
 @RestController
 @RequestMapping(value = "/users")
