@@ -1,4 +1,4 @@
-# PROJETO: DSCommerce - Backend
+# PROJETO: Microsserviços Java com Spring Boot e Spring Cloud
 
 # Sobre o projeto
 
@@ -10,56 +10,31 @@ entidades de negócio (muitos-para-um, muitos-para-muitos, etc.).
 - O sistema possibilita a aplicação de vários conhecimentos importantes das
 disciplinas de fundamentos.
 - O sistema contem as principais funcionalidades que se espera de um
-profissional iniciante deve saber construir, tais como telas de cadastro e fluxos de
-caso de uso.
+profissional iniciante deve saber construir.
 
 
 ## 
 
 ### Visão geral do sistema
 
- O sistema deve manter um cadastro de usuário, produtos e suas categorias. Cada
-usuário possui nome, email, telefone, data de nascimento e uma senha de acesso. Os
-dados dos produtos são: nome, descrição, preço e imagem. O sistema deve apresentar
-um catálogo de produtos, os quais podem ser filtrados pelo nome do produto. A partir
-desse catálogo, o usuário pode selecionar um produto para ver seus detalhes e para
-decidir se o adiciona a um carrinho de compras. O usuário pode incluir e remover itens
-do carrinho de compra, bem como alterar as quantidades de cada item. Uma vez que o
-usuário decida encerrar o pedido, o pedido deve então ser salvo no sistema com o status
-de "aguardando pagamento". Os dados de um pedido são: instante em que ele foi salvo,
-status, e uma lista de itens, onde cada item se refere a um produto e sua quantidade no
-pedido. O status de um pedido pode ser: aguardando pagamento, pago, enviado,
-entregue e cancelado. Quando o usuário paga por um pedido, o instante do pagamento
-deve ser registrado. Os usuários do sistema podem ser clientes ou administradores,
-sendo que todo usuário cadastrado por padrão é cliente. Usuários não identificados
-podem se cadastrar no sistema, navegar no catálogo de produtos e no carrinho de
-compras. Clientes podem atualizar seu cadastro no sistema, registrar pedidos e visualizar
-seus próprios pedidos. Usuários administradores tem acesso à área administrativa onde
-pode acessar os cadastros de usuários, produtos e categorias.
+Foi aplicado um sistema de microsserviços usando as ferramentas Spring Boot e Spring Cloud. Os microsserviços são registrados em um "Discovery Server" (Eureka) e as requisições são feitas em um API Gateway (Zuul) que também lida com a autenticação e autorização usando OAuth e tokens JWT. Realizei o uso de Feign para chamadas de API entre microsserviços, Ribbon para balanceamento de carga, Hystrix para tolerância a falhas e geração de containers Docker para implantação. O sistema é de nível iniciante para microsserviços e Spring Cloud, mas requer conhecimento prévio de construção de API's REST com Spring Boot e Java.
 
+![image](https://user-images.githubusercontent.com/88008441/231507621-3b115e84-65e9-4f61-9403-f764204fe4f3.png)
+
+##
 
 ### Respeitando o seguinte Modelo Conceitual:
 
-![image](https://user-images.githubusercontent.com/88008441/220115530-c5dec5bc-d496-4714-b5c6-2dbbc3b5af2b.png)
+![image](https://user-images.githubusercontent.com/88008441/231504698-ee6742d6-1b6a-4ab3-a6b2-3b2dd0498145.png)
 
+# Obtive os seguintes conhecimentos através do curso:
 
-# Tecnologias utilizadas
-
-- Java
-- Spring Boot
-- JPA / Hibernate
-- Maven
-- Banco H2
-
-# Como executar o projeto
-
-Pré-requisitos: Java 17
-
-```bash
-# clonar repositório
-git clone https://github.com/PauloSergioo/Desafio-Clientes-CRUD
-
-```
+- Uma introdução a algumas das principais ferramentas do Spring Cloud para estruturação de um sistema em microsserviços
+- Chamadas de API entre microsserviços por meio de clientes Feign
+- Criar microsserviços escaláveis, com resolução de nomes e balanceamento de carga de forma transparente, usando servidor Eureka
+- Roteamento transparente de microsserviços com Zuul API Gateway
+- Configuração centralizada por meio de um servidor de configuração
+- Autenticação e autorização compartilhada por meio do API Gateway, usando Oauth e JWT
 
 # Educador
 
